@@ -1,4 +1,4 @@
-name: MidtermLatest
+name: MidtermFinal
 
 on:
   push:
@@ -45,7 +45,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'Midterm1995'
+          app-name: 'MidtermFinal'
           slot-name: 'Production'
           publish-profile: ${{ secrets.MY_AZURE_SECRET }}
           package: '*.jar'
