@@ -26,26 +26,3 @@ jobs:
         with:
           name: java-app
           path: '${{ github.workspace }}/target/*.jar'
-  
-  
-  deploy:
-    runs-on: windows-latest
-    needs: build
-    environment:
-      name: 'Production'
-      url: ${{ vars.URL }}
-
-    steps:
-      - name: Download artifact from build job
-        uses: actions/download-artifact@v2
-        with:
-          name: java-app
-
-      - name: Deploy to Azure Web App
-        id: deploy-to-webapp
-        uses: azure/webapps-deploy@v2
-        with:
-          app-name: 'MidtermFinal'
-          slot-name: 'Production'
-          publish-profile: ${{ secrets.MY_AZURE_SECRET }}
-          package: '*.jar'
