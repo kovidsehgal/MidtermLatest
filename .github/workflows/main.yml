@@ -26,10 +26,9 @@ jobs:
         
       - name: Check build/test results
         run: |
-          if [ ${{ job.status }} == 'success' ]; then
+          if: ${{ job.status == 'success' }}
             echo "Tests failed. Exiting..."
             exit 1
-          fi
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
