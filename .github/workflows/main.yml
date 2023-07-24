@@ -26,6 +26,7 @@ jobs:
         
       - name: Check build/test results
         if: ${{ job.status == 'success' }}
+        run: |
           echo "Tests failed. Exiting..."
           exit 1
 
