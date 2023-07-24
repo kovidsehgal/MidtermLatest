@@ -5,6 +5,10 @@ on:
     branches:
       - main
   workflow_dispatch:
+  
+env:
+  DAY_OF_WEEK: Monday
+  First_Name: Kovid
 
 jobs:
   build:
@@ -32,9 +36,6 @@ jobs:
           
       - name: If Check
         if: ${{ env.DAY_OF_WEEK == 'Monday' }}
-        env:
-          First_Name: Mona
-          DAY_OF_WEEK: Monday
         run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
 
       - name: Upload artifact for deployment job
