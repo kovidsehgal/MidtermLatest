@@ -23,6 +23,13 @@ jobs:
         
       - name: Test with Maven
         run: mvn clean test
+        
+      - name: Check build/test results
+        run: |
+          if [ ${{ job.status }} == 'success' ]; then
+            echo "Tests failed. Exiting..."
+            exit 1
+          fi
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
