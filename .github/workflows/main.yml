@@ -32,10 +32,10 @@ jobs:
           
       - name: If Check
         if: ${{ env.DAY_OF_WEEK == 'Monday' }}
-        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
         env:
           First_Name: Mona
           DAY_OF_WEEK: Monday
+        run: echo "$Greeting $First_Name. Today is $DAY_OF_WEEK!"
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
