@@ -29,6 +29,12 @@ jobs:
         run: |
           echo "Tests failed. Exiting..."
           exit 1
+          
+      - name: If Check
+        run: |
+          Code = 35
+          if: ${{ Code == 35 }}
+          echo "Code is working. Exiting..."
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
