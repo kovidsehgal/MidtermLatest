@@ -25,10 +25,9 @@ jobs:
         run: mvn clean test
         
       - name: Check build/test results
-        run: |
-          if: ${{ job.status == 'success' }}
-            echo "Tests failed. Exiting..."
-            exit 1
+        if: ${{ job.status == 'success' }}
+          echo "Tests failed. Exiting..."
+          exit 1
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2
